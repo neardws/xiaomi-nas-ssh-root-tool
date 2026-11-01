@@ -1,7 +1,7 @@
 # 小米 NAS（RP05）固件 1.0.9.462 一键 Root — macOS 版
 
-> **私有 fork 说明**：源自 [kid0114/xiaomi-nas-ssh-root-tool](https://github.com/kid0114/xiaomi-nas-ssh-root-tool)。
-> 本仓库相对上游默认 `_2`/`id=2`，已适配空账号首次建共享落在 **`u{uid}_1` / `id=1`**（RP05 重置后实测）。
+> **说明**：源自 [kid0114/xiaomi-nas-ssh-root-tool](https://github.com/kid0114/xiaomi-nas-ssh-root-tool)。
+> **Samba 槽位自适应**：运行前调用 `get_samba_account` 探测已有账号；按固件 `smb_get_id` 规则——槽位 1 空则用 **`id=1` / `u{uid}_1`**（空账号首次共享），否则用 **`id=2` / `u{uid}_2`**（已有共享）。注入、`set_samba_account` 与 cleanup 使用同一 id。
 > **勿提交运行产物**：`cleanup-*.sh`、`pwn_trigger.so`、证书/私钥、密码、本地日志。
 
 
